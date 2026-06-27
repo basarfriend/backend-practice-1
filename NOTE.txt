@@ -1,0 +1,68 @@
+.writefile
+.appendfile
+.rename
+.copy
+.unlink=delete only file
+.rmdir=delete blank folder
+.rm={recursive:true} use karte hue delete folder chahe blank ho ya na ho
+.fs.readdir('./files',function (err,files) {
+        res.render('index',{files:files})
+    }) =read file
+ fs.readFile(`./files/${req.params.filename}`,'utf-8',function (err,filedata) {
+        const taskname=req.params.filename
+        const task={taskname,filedata}
+        res.render('task',{task,task})
+    })
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+protocol==rule ye protocol os me pre install hote hai 
+http/https protocol ke wajaha se  internet par na kuch bhej sakte h na kuch manga sakte h means iske bina internet nahi chalega
+.createserver
+http-not secure
+https-secure way
+------------------------------------------------------
+|const http=require("http")                          |
+|const server=http.createServer(function (req,res){  |
+|    res.send("my name is BASAR")                     |
+|})                                                  |
+|server.listen(1111)                                 |
+------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+npm
+.install=npm i packagename
+.perticuar version install=npm i pckgname@ex:1.20.4
+.uninstall-npm uninstall packagename
+.dependencies=package and uski dependency
+devdependencies=wo pachage o sirf devlopment me kam ata hai jab live hota hai to kaa nahi ata hai  
+.start and test command=use for those command which is prebuild
+.run=this command use for run custom command 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//intoruduction to express js
+//express js  npm package hai jo manage karta hai evrything chahe request bhejne se lekar reponse lene tak
+//framwork = ye hame flow deta jiske hisaab se ham kaam karte hai chahe jeise bhi kare ex:tumhe nahana hai aur ye ek flow hai ab fark nahi padta tum mug se ya shower nahao basa naha na hai
+//middleware==jab requset serverer tak jati hai to server aur route ke beech hi middleware hota hai jo apna kaam perform karne ke baad req forward karta hai route ko
+//middleware hai jo har ek route hone par chalta hai    |app.use(function (req,res,next) {
+    console.log("middleware chgaya")
+    next()
+    })
+------------------------------------------------------------------------------------------------------------
+//authentication--jab use login kata hai to user and server ke pass ek same string hoti hai jab tak ye string ek dusre ke paas hai tab takuser login rahta hai jab ye string kisi ke pass nahi hota hai ye badal jata hai tab user logout ho jata hai aur login se logou tak ko session kaha jata hai
+//form handling--jab for se kuch data backend par bheja jata hai to wo eise formet me hota hai jo unredeble hota hai isliye use readable banene ke liye ye usee kiya jata hai
+  app.use(express.json())---json file ko redable banata hai
+  app.use(express.urlencoded({extended:true}))--url ko readeble banata hai
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+const path = require('path')---for get path
+app.use(express.static(path.join(__dirname,'public')))---ye current file (before adding public) currentfile+public file tak ka path
+app.set('view engine','ejs')---view file as ejs
+res.render('index')---for render 
+//publicfile ke andar sare css images js danlana hai
+-------------------------------------------------------------
+//dynamic route
+//jis url ko dynamic banna hai usme : lagan ahai  /profile/:author or /profile/:author/:age.........
+//req.params.author or req.params.age--:se pahle ka 
+<%iske beech me js likha jata hai%>
+<%= iske beech me var%>
+\\app.post('/create',function (req,res) {
+        fs.writeFile(`./files/${req.body.tittle}.txt`,`${req.body.description}`,function (error) {
+            res.redirect('/')
+        })
+    })---form post 

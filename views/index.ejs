@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<link rel="stylesheet" href="/css/style.css">
+<body>
+    <div class="form-div">
+        <form class="form" action="/create" method="post">
+            <input type="text" name="tittle" placeholder="task name" required>
+            <input type="text" name="description" placeholder="task details" required>
+            <button type="submit">CREATE</button>
+        </form>
+    </div>
+    <div class="card-div">    
+        <% if(files.length>0){ %>
+           <% files.forEach((e)=>{ %>
+            <div class="card">
+                <p><%=e%></p>
+                <a href="/file/<%=e%>">read more</a>
+                <form action="/<%=e%>/delete" method="post">
+                    <button>delete</button>
+                </form>
+            </div>
+                <% }) %>
+       <% } else{ %>
+       <p>NO TASK YET</p>
+        <%}%>
+    </div>
+</body>
+</html>

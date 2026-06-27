@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=task.taskname%></title>
+</head>
+<link rel="stylesheet" href="/css/task.css">
+<body>
+<main>
+    <div class="button">
+        <a href="/">
+            <button >go back</button>
+        </a>
+        <button class="edit-button">edit filename</button>
+    </div>
+    <hr>
+    <form action="/file/<%=task.taskname%>/edit" method="post">
+        <input type="text" placeholder="<%=task.taskname%> (current)" disabled style="background-color: red;">
+        <input type="text" placeholder="edit file name " name="tittle" required>
+        <button>CHANGE</button>
+    </form>
+    <hr>
+<p><%=task.filedata%></p>
+<script>
+    const editButton=document.querySelector('.edit-button')
+    const form=document.querySelector('form')
+    editButton.addEventListener('click',(e)=>{
+        editButton.style.display='none'
+        form.style.display='flex'
+    })
+</script>
+</body>
+</main>
+        
+</html>
