@@ -1,0 +1,1 @@
+"I built a simple To-Do application to practice my backend skills. When a user creates a task by entering a 'task name' and 'task details,' the backend generates a text file storing this data. Users can also edit or delete tasks, which automatically updates or removes the corresponding files from the backend storage
